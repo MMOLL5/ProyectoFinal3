@@ -1,0 +1,10 @@
+{"id":1,"timestamp":1630112942192,"nombre":"Cartuchera1","descripcion":"Cartuchera1 para escuela","codigo":"ctr1","foto":"http://foto","precio":10,"stock":100}
+{"id":2,"timestamp":1630113088251,"nombre":"Cartuchera2","descripcion":"Cartuchera1 para escuela","codigo":"ctr1","foto":"http://foto2","precio":20,"stock":200}
+{"id":1,"timestamp":1632086926992,"nombre":"papel","descripcion":"Papel A4","codigo":"4","foto":"www.foto.com","precio":300,"stock":21}
+{"id":1,"timestamp":1632087082319,"nombre":"papel","descripcion":"Papel A4","codigo":"4","foto":"www.foto.com","precio":300,"stock":21}
+{"id":1,"timestamp":1632088354972,"nombre":"papel","descripcion":"Papel A4","codigo":"4","foto":"www.foto.com","precio":300,"stock":21}
+{"id":1,"timestamp":1632088733924,"nombre":"papel","descripcion":"Papel A4","codigo":"4","foto":"www.foto.com","precio":300,"stock":21}
+{"id":1,"timestamp":1632089332283,"nombre":"papel","descripcion":"Papel A4","codigo":"4","foto":"www.foto.com","precio":300,"stock":21}
+{"id":1,"timestamp":1632089607413,"nombre":"papel","descripcion":"Papel A4","codigo":"4","foto":"www.foto.com","precio":300,"stock":21}
+{"id":1,"timestamp":1632090680877,"nombre":"papel","descripcion":"Papel A4","codigo":"4","foto":"www.foto.com","precio":300,"stock":21}
+{"id":1,"timestamp":1632091307109,"nombre":"papel","descripcion":"Papel A4","codigo":"4","foto":"www.foto.com","precio":300,"stock":21}

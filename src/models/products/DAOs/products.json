@@ -1,0 +1,42 @@
+[
+	{
+		"_id": "1",
+		"timestamp": 1632092006577,
+		"nombre": "lapiz",
+		"descripcion": "lapices",
+		"codigo": "PAP4",
+		"foto": "www.foto.com",
+		"precio": 200,
+		"stock": 15
+	},
+	{
+		"_id": "2",
+		"timestamp": 1632089361855,
+		"nombre": "cartuchera",
+		"descripcion": "Cartucheras",
+		"codigo": "cart",
+		"foto": "www.foto.com",
+		"precio": 200,
+		"stock": 15
+	},
+	{
+		"_id": "3",
+		"timestamp": 1632089361855,
+		"nombre": "boligoma",
+		"descripcion": "boligomas",
+		"codigo": "bol",
+		"foto": "www.foto.com",
+		"precio": 200,
+		"stock": 15
+	},
+	{
+		"_id": "4",
+		"timestamp": 1632091905673,
+		"nombre": "papel",
+		"descripcion": "Papel A4",
+		"codigo": "4",
+		"foto": "www.foto.com",
+		"precio": 300,
+		"stock": 21
+	}
+]
