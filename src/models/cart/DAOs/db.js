@@ -1,4 +1,5 @@
 import knex from 'knex';
+import { Logger } from '../../../services/logger';
 
 export const sqliteDB = knex({
   client: 'sqlite3',
@@ -19,7 +20,7 @@ export const mySQLDB = knex({
 
 sqliteDB.schema.hasTable('cart').then((exists) => {
   if (!exists) {
-    console.log('NO EXISTE LA TABLA CART. VAMOS A CREARLA');
+    Logger.info('NO EXISTE LA TABLA CART. VAMOS A CREARLA');
     sqliteDB.schema
       .createTable('cart', (table) => {
         table.increments();
@@ -27,7 +28,7 @@ sqliteDB.schema.hasTable('cart').then((exists) => {
         table.string('product').notNullable();
       })
       .then(() => {
-        console.log('SqLite DONE');
+        Logger.info('SqLite DONE');
       });
   }
 });
@@ -42,7 +43,7 @@ mySQLDB.schema.hasTable('products').then((exists) => {
         table.string('product').notNullable();
        })
       .then(() => {
-        console.log('SQLDB DONE');
+        Logger.info('SQLDB DONE');
       });
   }
 });

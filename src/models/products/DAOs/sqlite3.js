@@ -1,4 +1,5 @@
 import { sqliteDB } from './db';
+import { Logger } from '../../../services/logger';
 
   export class ProductosSqlite3DAO{
     productos;
@@ -9,7 +10,7 @@ import { sqliteDB } from './db';
   
     async get(id) {
       let output = [];
-      console.log('id:', id);
+      Logger.info('id:', id);
           if(typeof id === "undefined"){
             output = await sqliteDB.from('products').select();
           } 

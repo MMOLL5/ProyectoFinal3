@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import passport from '../middleware/auth';
+import { Logger } from '../services/logger';
 
 const router = Router();
 
@@ -7,13 +8,9 @@ router.post('/login', passport.authenticate('login'), function (req, res) {
   res.json({ msg: 'Welcome!', user: req.user });
 });
 
-router.get('/hello', (req, res) => {
-  res.json({ msg: 'HOLA', session: req.session });
-});
-
 router.post('/signup', (req, res, next) => {
   passport.authenticate('signup', function (err, user, info) {
-    console.log(err, user, info);
+    Logger.info(err, user, info);
     if (err) {
       return next(err);
     }

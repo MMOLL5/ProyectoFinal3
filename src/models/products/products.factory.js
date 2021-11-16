@@ -5,6 +5,8 @@ import { ProductosMySqlDAO } from './DAOs/mysql';
 import { ProductosSqlite3DAO } from './DAOs/sqlite3';
 import { ProductosFireBaseDAO } from './DAOs/firebase';
 import path from 'path';
+import { Logger } from '../../services/logger';
+import { loggers } from 'winston';
 
 export let TipoPersistencia = {
   'Memoria': 'MEM',
@@ -20,29 +22,29 @@ export class NoticiasFactoryDAO {
   static get(tipo) {
     switch (tipo) {
       case TipoPersistencia.FileSystem:
-        console.log('RETORNANDO INSTANCIA CLASE FS');
+        Logger.info('RETORNANDO INSTANCIA CLASE FS');
         const filePath = path.resolve(__dirname, './DAOs/products.json');
-        console.log(filePath);
+        Logger.info(filePath);
         return new ProductosFSDAO(filePath);
 
       case TipoPersistencia.SQLITE3:
-        console.log('RETORNANDO INSTANCIA CLASE SQLLITE3');
+        Logger.info('RETORNANDO INSTANCIA CLASE SQLLITE3');
         return new ProductosSqlite3DAO();
 
       case TipoPersistencia.LocalMongo:
-        console.log('RETORNANDO INSTANCIA CLASE MONGO LOCAL');
+        Logger.info('RETORNANDO INSTANCIA CLASE MONGO LOCAL');
         return new ProductosAtlasDAO(true);
       
       case TipoPersistencia.MYSQL:
-      console.log('RETORNANDO INSTANCIA CLASE MYSQL');
+        Logger.info('RETORNANDO INSTANCIA CLASE MYSQL');
       return new ProductosMySqlDAO(true);
 
       case TipoPersistencia.Firebase:
-        console.log('RETORNANDO INSTANCIA CLASE FIREBASE');
+        Logger.info('RETORNANDO INSTANCIA CLASE FIREBASE');
         return new ProductosFireBaseDAO(true);
 
       default:
-        console.log('RETORNANDO INSTANCIA CLASE MEMORIA');
+        Logger.info('RETORNANDO INSTANCIA CLASE MEMORIA');
         return new ProductosMemDAO();
     }
   }

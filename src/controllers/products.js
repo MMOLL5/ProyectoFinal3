@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { productsAPI } from '../apis/products';
 //import { productsPersistencia } from '../persistencia/products';
+import { Logger } from '../services/logger';
 
 class Producto {
   checkAddProducts(req, res, next) {
@@ -24,7 +25,7 @@ class Producto {
   async checkProductExists(req, res, next) {
     const id = Number(req.params.id);
     const producto = await productsAPI.getProducts(id);
-    console.log('checkProductExists');
+    Logger.info('checkProductExists');
     if (!producto) {
       return res.status(404).json({
         msg: 'Producto no encontrado',

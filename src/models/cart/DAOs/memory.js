@@ -1,3 +1,4 @@
+import { Logger } from '../../../services/logger';
 export class CartMemDAO {
     cart= [];
   
@@ -44,7 +45,7 @@ export class CartMemDAO {
       };
   
       this.cart.push(newItem);
-      console.log(cart);
+      Logger.info(cart);
       return newItem;
     }
   

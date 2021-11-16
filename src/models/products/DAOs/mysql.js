@@ -1,4 +1,5 @@
 import { mySQLDB } from './db';
+import { Logger } from '../../../services/logger';
 
   export class ProductosMySqlDAO{
     productos;
@@ -9,7 +10,7 @@ import { mySQLDB } from './db';
   
     async get(id) {
       let output = [];
-      console.log('id:', id);
+      Logger.info('id:', id);
           if(typeof id === "undefined"){
             output = await mySQLDB.from('products').select();
           } 

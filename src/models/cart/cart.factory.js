@@ -5,6 +5,7 @@ import { CartMySqlDAO } from './DAOs/mysql';
 import { CartSqlite3DAO } from './DAOs/sqlite3';
 import { CartFireBaseDAO } from './DAOs/firebase';
 import path from 'path';
+import { Logger } from '../../services/logger';
 
 export let TipoPersistencia = {
   'Memoria': 'MEM',
@@ -20,29 +21,29 @@ export class NoticiasFactoryDAO {
   static get(tipo) {
     switch (tipo) {
       case TipoPersistencia.FileSystem:
-        console.log('RETORNANDO INSTANCIA CLASE FS');
+        Logger.info('RETORNANDO INSTANCIA CLASE FS');
         const filePath = path.resolve(__dirname, './DAOs/cart.json');
-        console.log(filePath);
+        Logger.info(filePath);
         return new CartFSDAO(filePath);
 
       case TipoPersistencia.SQLITE3:
-        console.log('RETORNANDO INSTANCIA CLASE SQLLITE3');
+        Logger.info('RETORNANDO INSTANCIA CLASE SQLLITE3');
         return new CartSqlite3DAO();
 
       case TipoPersistencia.LocalMongo:
-        console.log('RETORNANDO INSTANCIA CLASE MONGO LOCAL');
+        Logger.info('RETORNANDO INSTANCIA CLASE MONGO LOCAL');
         return new CartAtlasDAO(true);
       
       case TipoPersistencia.MYSQL:
-      console.log('RETORNANDO INSTANCIA CLASE MYSQL');
+        Logger.info('RETORNANDO INSTANCIA CLASE MYSQL');
       return new CartMySqlDAO(true);
 
       case TipoPersistencia.Firebase:
-        console.log('RETORNANDO INSTANCIA CLASE FIREBASE');
+        Logger.info('RETORNANDO INSTANCIA CLASE FIREBASE');
         return new CartFireBaseDAO(true);
 
       default:
-        console.log('RETORNANDO INSTANCIA CLASE MEMORIA');
+        Logger.info('RETORNANDO INSTANCIA CLASE MEMORIA');
         return new CartMemDAO();
     }
   }

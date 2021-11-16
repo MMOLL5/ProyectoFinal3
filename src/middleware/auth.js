@@ -1,17 +1,18 @@
 import passport from 'passport';
 import passportLocal from 'passport-local';
 import { UserModel } from '../models/users/users';
+import { Logger } from '../services/logger';
 
 const LocalStrategy = passportLocal.Strategy;
 
 const strategyOptions = {
-  usernameField: 'email',
+  usernameField: 'userName',
   passwordField: 'password',
   passReqToCallback: true,
 };
 
-const loginFunc = async (req, email, password, done) => {
-  const user = await UserModel.findOne({ email });
+const loginFunc = async (req, userName, password, done) => {
+  const user = await UserModel.findOne({ userName });
 
   if (!user) {
     return done(null, false, { message: 'User does not exist' });
@@ -19,33 +20,33 @@ const loginFunc = async (req, email, password, done) => {
   if (!user.isValidPassword(password)) {
     return done(null, false, { message: 'Password is not valid.' });
   }
-  console.log('SALIO TODO BIEN');
+  Logger.info('SALIO TODO BIEN');
   return done(null, user);
 };
 
-const signUpFunc = async (req, email, password, done) => {
+const signUpFunc = async (req, userName, password, done) => {
   try {
-    const { email, password, nombre, direccion, edad, telefono, avatar} = req.body;
-    console.log(req.body);
-    if (!username || !password || !email || !firstName || !lastName) {
-      console.log('Invalid body fields');
+    const { userName, password, nombre, direccion, edad, telefono, avatar} = req.body;
+    Loger.info(req.body);
+    if (!userName || !password || !nombre || !direccion || !edad || !telefono || !avatar) {
+      Logger.info('Invalid body fields');
       return done(null, false);
     }
 
     const query = {
-      $or: [{ nombre: nombre }, { email: email }],
+      $or: [{ nombre: userName }],
     };
 
-    console.log(query);
+    Logger.info(query);
     const user = await UserModel.findOne(query);
 
     if (user) {
-      console.log('User already exists');
-      console.log(user);
+      Logger.info('User already exists');
+      Logger.info(user);
       return done(null, false, 'User already exists');
     } else {
       const userData = {
-        email,
+        userName,
         password,
         nombre,
         direccion,

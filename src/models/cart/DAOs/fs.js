@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { Logger } from '../../../services/logger';
 
 export class CartFSDAO  {
   cart = [];
@@ -16,7 +17,7 @@ export class CartFSDAO  {
   }
 
   async leer(archivo) {
-    console.log('archivo:', archivo);
+    Logger.info('archivo:', archivo);
     this.cart = JSON.parse(await fs.promises.readFile(archivo, 'utf-8'));
   }
 

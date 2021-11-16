@@ -5,6 +5,7 @@ import fs from 'fs';
   ProductBaseClass,
   ProductQuery,
 } from '../products.interface';*/
+import { Logger } from '../../../services/logger';
 
 export class ProductosFSDAO  {
   productos = [];
@@ -22,7 +23,7 @@ export class ProductosFSDAO  {
   }
 
   async leer(archivo) {
-    console.log('archivo:', archivo);
+    Logger.info('archivo:', archivo);
     this.productos = JSON.parse(await fs.promises.readFile(archivo, 'utf-8'));
   }
 
